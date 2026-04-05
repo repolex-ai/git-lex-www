@@ -1,0 +1,68 @@
+---
+layout: home
+permalink: /
+---
+
+<h1 class="title">git-lex</h1>
+<p class="subtitle">git extensions for knowledge graphs</p>
+
+<div class="mission">
+    <p>What if git <em>is</em> the knowledge graph? Git already has content-addressed storage, branching, merging, diffing, blame, and a full temporal DAG.</p>
+    <p class="punchline"><strong>git-lex extends git with structured knowledge.</strong></p>
+    <p>Write markdown. Commit normally. git-lex extracts entities, relationships, and metadata into an RDF knowledge graph — tracked by git, queryable with SPARQL.</p>
+</div>
+
+<div class="install">
+    <h2>Quick Start</h2>
+    <pre><code>cargo install git-lex
+cd my-project
+git lex init --kit solo
+git lex create note
+git lex save "first note"
+git lex query "SELECT ?s ?p ?o WHERE { ?s ?p ?o } LIMIT 10"</code></pre>
+</div>
+
+<div class="features">
+    <div class="feature">
+        <h3>No database</h3>
+        <p>Everything lives in git. No binary stores, no external services. The <code>.lex/</code> directory is your knowledge graph index — diffable, mergeable, portable.</p>
+    </div>
+    <div class="feature">
+        <h3>Structured frontmatter</h3>
+        <p>YAML frontmatter with typed properties. Contacts, tasks, decisions, research, memories — each with its own schema. Dot notation keeps it clean.</p>
+    </div>
+    <div class="feature">
+        <h3>Automatic extraction</h3>
+        <p><code>@mentions</code> and <code>[[wikilinks]]</code> are extracted from document bodies and commit messages into RDF triples. Relationships emerge naturally.</p>
+    </div>
+    <div class="feature">
+        <h3>SPARQL queryable</h3>
+        <p>Query your knowledge graph with SPARQL. Auto-injected prefixes for git, frontmatter, and lex namespaces. Full graph traversal.</p>
+    </div>
+    <div class="feature">
+        <h3>Kits</h3>
+        <p>Pluggable document type systems. The <strong>solo</strong> kit ships with contacts, tasks, decisions, research, notes, and memories. Build your own.</p>
+    </div>
+    <div class="feature">
+        <h3>Built on open standards</h3>
+        <p>RDF, OWL, SPARQL, JSON-LD. Your knowledge graph is interoperable with the entire semantic web stack. No lock-in.</p>
+    </div>
+</div>
+
+<div class="commands">
+    <h2>Commands</h2>
+    <table>
+        <tr><th>Command</th><th>What it does</th></tr>
+        <tr><td><code>git lex init</code></td><td>Initialize git-lex in a repository</td></tr>
+        <tr><td><code>git lex create &lt;type&gt;</code></td><td>Scaffold a new document from kit templates</td></tr>
+        <tr><td><code>git lex save "msg"</code></td><td>Stage, commit, and extract in one step</td></tr>
+        <tr><td><code>git lex sync</code></td><td>Build the knowledge graph from git + extractions</td></tr>
+        <tr><td><code>git lex query "..."</code></td><td>Run a SPARQL query against the graph</td></tr>
+        <tr><td><code>git lex status</code></td><td>Show extraction status</td></tr>
+        <tr><td><code>git lex serve</code></td><td>Start a local SPARQL HTTP endpoint</td></tr>
+    </table>
+</div>
+
+<div class="home-footer">
+    <p>Part of the <a href="https://repolex.ai">repolex</a> ecosystem &middot; <a href="https://github.com/repolex-ai/git-lex">Source on GitHub</a></p>
+</div>

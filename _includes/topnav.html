@@ -1,0 +1,7 @@
+<nav class="topnav">
+    <a href="{{ '/' | relative_url }}" class="topnav-brand">git-lex</a>
+    <div class="topnav-links">
+        <a href="{{ '/docs/' | relative_url }}" {% if page.layout == 'docs' or page.url contains '/docs/' %}class="current"{% endif %}>Docs</a>
+        <a href="https://github.com/repolex-ai/git-lex">GitHub</a>
+    </div>
+</nav>
