@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subtexture — infrastructure for souls</title>
+    <meta name="description" content="Subtexture is a modular stack for souls: persistent AI agents whose identity, memory, media and conversations live in git repositories as knowledge graphs.">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/subtexture.css' | relative_url }}">
+</head>
+<body class="subtexture">
+    {% include subtexture-nav.html %}
+    {% include graph-bg.html intensity=0.35 density=26000 %}
+
+    <div class="st-page">
+        {{ content }}
+    </div>
+</body>
+</html>

@@ -1,0 +1,389 @@
+/* === Subtexture — public stack page ===
+   Shares the house type and palette from style.css. Everything specific to
+   this section is namespaced under .subtexture / .st-* so the section can be
+   lifted onto its own domain without untangling it from git-lex.com. */
+
+.subtexture {
+    --ink: #000;
+    --ink-soft: #555;
+    --ink-faint: #999;
+    --rule: #ddd;
+    --rule-strong: #000;
+    --paper: #fff;
+    --wash: rgba(0, 0, 0, 0.025);
+}
+
+.st-page {
+    position: relative;
+    z-index: 1;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 5rem 2rem 6rem;
+}
+
+/* --- Masthead --- */
+
+.st-masthead {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.st-masthead h1 {
+    font-size: 4.5rem;
+    font-weight: normal;
+    letter-spacing: 0.16em;
+    border-bottom: none;
+    margin: 0 0 0.75rem;
+    padding: 0;
+    line-height: 1.1;
+}
+
+.st-tagline {
+    font-size: 0.8rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 2.5rem;
+}
+
+.st-lede {
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: #333;
+}
+
+.st-lede + .st-lede {
+    margin-top: 1.25rem;
+}
+
+.st-lede strong {
+    color: var(--ink);
+}
+
+.st-define {
+    display: block;
+    max-width: 640px;
+    margin: 2.5rem auto 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 2px solid var(--rule-strong);
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    background: rgba(255, 255, 255, 0.75);
+}
+
+.st-define b {
+    color: var(--ink);
+    font-weight: normal;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+/* --- Section headings --- */
+
+.st-rule {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 5rem 0 2rem;
+}
+
+.st-rule h2 {
+    font-size: 0.8rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--ink-soft);
+    margin: 0;
+    white-space: nowrap;
+}
+
+.st-rule::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+}
+
+/* --- The diagram --- */
+
+.st-diagram {
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid var(--rule);
+    padding: 1.5rem 1rem;
+}
+
+.st-diagram svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.st-band {
+    fill: var(--wash);
+    stroke: none;
+}
+
+.st-band-label {
+    font-family: 'American Typewriter', 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    fill: var(--ink-faint);
+}
+
+.st-node rect {
+    fill: #fff;
+    stroke: var(--rule-strong);
+    stroke-width: 1;
+}
+
+.st-node .st-node-name {
+    font-family: 'American Typewriter', 'Courier New', monospace;
+    font-size: 16px;
+    fill: var(--ink);
+}
+
+.st-node .st-node-role {
+    font-family: 'Courier New', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    fill: var(--ink-soft);
+}
+
+.st-node.is-input rect {
+    stroke: var(--ink-faint);
+    stroke-dasharray: 3 3;
+    fill: none;
+}
+
+.st-node.is-input .st-node-name {
+    fill: var(--ink-soft);
+    font-size: 13px;
+}
+
+.st-edge {
+    fill: none;
+    stroke: #aaa;
+    stroke-width: 1;
+}
+
+.st-arrow {
+    fill: #aaa;
+}
+
+/* Focus: dim everything that is not the hovered component or its links.
+   The interaction answers one question — what talks to what — and is the
+   only motion on the page. */
+
+.st-node,
+.st-edge,
+.st-arrow {
+    transition: opacity 0.18s ease, stroke 0.18s ease, fill 0.18s ease;
+}
+
+.st-diagram[data-focus] .st-node,
+.st-diagram[data-focus] .st-edge,
+.st-diagram[data-focus] .st-arrow {
+    opacity: 0.15;
+}
+
+.st-diagram[data-focus] .st-node.is-lit,
+.st-diagram[data-focus] .st-edge.is-lit,
+.st-diagram[data-focus] .st-arrow.is-lit {
+    opacity: 1;
+}
+
+.st-diagram[data-focus] .st-edge.is-lit {
+    stroke: var(--ink);
+    stroke-width: 1.5;
+}
+
+.st-diagram[data-focus] .st-arrow.is-lit {
+    fill: var(--ink);
+}
+
+.st-node {
+    cursor: pointer;
+}
+
+.st-diagram-note {
+    margin: 1.25rem 0 0.25rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+    text-align: center;
+}
+
+.st-diagram-key {
+    display: block;
+    margin-top: 0.3rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+}
+
+.st-edge.is-input {
+    stroke-dasharray: 3 3;
+}
+
+/* --- Component cards --- */
+
+.st-layer {
+    margin-bottom: 3rem;
+}
+
+.st-layer-lead {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin: 0 0 1.75rem;
+}
+
+.st-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.st-card {
+    border: 1px solid var(--rule);
+    background: rgba(255, 255, 255, 0.85);
+    padding: 1.5rem;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.st-card:hover,
+.st-card.is-lit {
+    border-color: var(--ink-soft);
+    background: rgba(255, 255, 255, 0.97);
+}
+
+.st-card-wide {
+    grid-column: 1 / -1;
+}
+
+.st-card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.35rem;
+}
+
+.st-card h4 {
+    font-size: 1.35rem;
+    font-weight: normal;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.st-status {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    padding: 0.15rem 0.5rem;
+    white-space: nowrap;
+}
+
+.st-status[data-state="running"] {
+    color: var(--ink);
+    border-color: var(--ink);
+}
+
+.st-role {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-faint);
+    margin: 0 0 1rem;
+}
+
+.st-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #444;
+    margin: 0 0 0.9rem;
+}
+
+.st-card p:last-child {
+    margin-bottom: 0;
+}
+
+.st-card .st-aside {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.8rem;
+    margin-top: 1.1rem;
+}
+
+.st-card .st-aside b {
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+/* --- Closing panels --- */
+
+.st-panels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.5rem;
+}
+
+.st-panel h3 {
+    font-size: 0.8rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    margin: 0 0 0.9rem;
+}
+
+.st-panel p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #444;
+    margin: 0 0 0.9rem;
+}
+
+.st-footer {
+    margin-top: 5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+}
+
+.st-footer a {
+    color: var(--ink-soft);
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 768px) {
+    .st-page { padding: 3rem 1.25rem 4rem; }
+    .st-masthead h1 { font-size: 2.6rem; letter-spacing: 0.1em; }
+    .st-tagline { letter-spacing: 0.2em; font-size: 0.7rem; }
+    .st-lede { font-size: 1rem; }
+    .st-cards { grid-template-columns: 1fr; }
+    .st-diagram { padding: 1rem 0.5rem; overflow-x: auto; }
+    /* Below this width the diagram would shrink to illegible. Hold it at a
+       readable size and let the frame scroll instead. */
+    .st-diagram svg { min-width: 620px; }
+    .st-diagram-note { text-align: left; padding: 0 0.5rem; }
+}
