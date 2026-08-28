@@ -11,7 +11,7 @@ permalink: /subtexture/
     nothing kept. <strong>Subtexture is built for the other case</strong> — an agent you work
     with for months, who remembers, and whose memory belongs to the two of you.</p>
 
-    <p class="st-lede">It is seven small programs rather than one large one. Each does a
+    <p class="st-lede">It is eight small programs rather than one large one. Each does a
     single job, each is designed to run on its own, and <strong>none of them is
     mandatory.</strong></p>
 
@@ -24,101 +24,123 @@ permalink: /subtexture/
 <div class="st-rule"><h2>The stack</h2></div>
 
 <div class="st-diagram" id="st-diagram">
-<svg viewBox="0 0 900 470" role="img" aria-label="A human and an LLM familiar either side of CoPIA, both writing into git-lex below it; Ravel under the familiar; Syrinx, Pan, Horae and Iris/Arke as infrastructure underneath.">
+<svg viewBox="0 0 980 500" role="img" aria-label="git-lex at the top; a human and an LLM familiar either side of CoPIA below it; Pan, Syrinx and Ravel beneath them; Horae driving Iris, then Arke, then the cloud.">
 
-    <!-- edges: dashed = a participant, solid = software -->
     <g class="st-edges">
-        <path class="st-edge is-actor" data-a="human" data-b="copia" d="M220,84 L344,84"></path>
-        <polygon class="st-arrow" data-a="human" data-b="copia" points="343,80 343,88 350,84"></polygon>
+        <path class="st-edge is-loose" data-a="human" data-b="copia" d="M220,168 L384,168"></path>
+        <polygon class="st-arrow" data-a="human" data-b="copia" points="383,164 383,172 390,168"></polygon>
 
-        <path class="st-edge is-actor" data-a="familiar" data-b="copia" d="M655,84 L556,84"></path>
-        <polygon class="st-arrow" data-a="familiar" data-b="copia" points="557,80 557,88 550,84"></polygon>
+        <path class="st-edge is-loose" data-a="familiar" data-b="copia" d="M690,168 L596,168"></path>
+        <polygon class="st-arrow" data-a="familiar" data-b="copia" points="597,164 597,172 590,168"></polygon>
 
-        <path class="st-edge is-actor" data-a="human" data-b="gitlex" d="M138,112 C138,190 250,238 369,238"></path>
-        <polygon class="st-arrow" data-a="human" data-b="gitlex" points="368,234 368,242 375,238"></polygon>
+        <path class="st-edge is-loose" data-a="human" data-b="gitlex" d="M140,140 C140,80 250,58 384,58"></path>
+        <polygon class="st-arrow" data-a="human" data-b="gitlex" points="383,54 383,62 390,58"></polygon>
 
-        <path class="st-edge is-actor" data-a="familiar" data-b="gitlex" d="M750,112 C750,190 640,238 531,238"></path>
-        <polygon class="st-arrow" data-a="familiar" data-b="gitlex" points="532,234 532,242 525,238"></polygon>
+        <path class="st-edge is-loose" data-a="familiar" data-b="gitlex" d="M780,140 C780,80 700,58 596,58"></path>
+        <polygon class="st-arrow" data-a="familiar" data-b="gitlex" points="597,54 597,62 590,58"></polygon>
 
-        <path class="st-edge is-actor" data-a="familiar" data-b="ravel" d="M750,112 L750,204"></path>
-        <polygon class="st-arrow" data-a="familiar" data-b="ravel" points="746,203 754,203 750,210"></polygon>
+        <path class="st-edge is-loose" data-a="familiar" data-b="ravel" d="M778,196 L772,264"></path>
+        <polygon class="st-arrow" data-a="familiar" data-b="ravel" points="766,263 774,263 770,270"></polygon>
 
-        <path class="st-edge" data-a="copia" data-b="gitlex" d="M450,112 L450,204"></path>
-        <polygon class="st-arrow" data-a="copia" data-b="gitlex" points="446,203 454,203 450,210"></polygon>
+        <path class="st-edge" data-a="copia" data-b="gitlex" d="M490,140 L490,92"></path>
+        <polygon class="st-arrow" data-a="copia" data-b="gitlex" points="486,93 494,93 490,86"></polygon>
 
-        <path class="st-edge" data-a="copia" data-b="horae" d="M530,112 C580,170 560,300 505,364"></path>
-        <polygon class="st-arrow" data-a="copia" data-b="horae" points="501,362 509,362 505,370"></polygon>
+        <path class="st-edge" data-a="copia" data-b="syrinx" d="M490,196 L490,264"></path>
+        <polygon class="st-arrow" data-a="copia" data-b="syrinx" points="486,263 494,263 490,270"></polygon>
 
-        <path class="st-edge" data-a="horae" data-b="ravel" d="M545,370 C600,340 660,300 731,273"></path>
-        <polygon class="st-arrow" data-a="horae" data-b="ravel" points="731,273 739,273 735,266"></polygon>
+        <path class="st-edge" data-a="syrinx" data-b="gitlex" d="M570,286 C630,280 632,140 566,98"></path>
+        <polygon class="st-arrow" data-a="syrinx" data-b="gitlex" points="562,99 570,99 566,92"></polygon>
 
-        <path class="st-edge" data-a="horae" data-b="pan" d="M430,398 L386,398"></path>
-        <polygon class="st-arrow" data-a="horae" data-b="pan" points="387,394 387,402 380,398"></polygon>
+        <path class="st-edge" data-a="syrinx" data-b="pan" d="M410,298 L316,298"></path>
+        <polygon class="st-arrow" data-a="syrinx" data-b="pan" points="317,294 317,302 310,298"></polygon>
 
-        <path class="st-edge" data-a="horae" data-b="iris" d="M600,398 L639,398"></path>
-        <polygon class="st-arrow" data-a="horae" data-b="iris" points="638,394 638,402 645,398"></polygon>
+        <path class="st-edge" data-a="syrinx" data-b="ravel" d="M570,298 L684,298"></path>
+        <polygon class="st-arrow" data-a="syrinx" data-b="ravel" points="683,294 683,302 690,298"></polygon>
 
-        <path class="st-edge" data-a="syrinx" data-b="gitlex" d="M117,370 C117,320 250,300 396,272"></path>
-        <polygon class="st-arrow" data-a="syrinx" data-b="gitlex" points="396,273 404,273 400,266"></polygon>
-    </g>
+        <path class="st-edge" data-a="copia" data-b="horae" d="M420,196 C380,240 330,330 290,394"></path>
+        <polygon class="st-arrow" data-a="copia" data-b="horae" points="286,392 294,392 290,400"></polygon>
 
-    <!-- the two participants: not software, so not drawn as software -->
-    <g class="st-node is-actor" data-id="human">
-        <rect x="55" y="56" width="165" height="56"></rect>
-        <text class="st-node-name" x="137" y="82" text-anchor="middle">Human</text>
-        <text class="st-node-role" x="137" y="99" text-anchor="middle">you</text>
-    </g>
+        <path class="st-edge" data-a="horae" data-b="pan" d="M230,400 L230,332"></path>
+        <polygon class="st-arrow" data-a="horae" data-b="pan" points="226,333 234,333 230,326"></polygon>
 
-    <g class="st-node is-actor" data-id="familiar">
-        <rect x="655" y="56" width="190" height="56"></rect>
-        <text class="st-node-name" x="750" y="82" text-anchor="middle">LLM Familiar</text>
-        <text class="st-node-role" x="750" y="99" text-anchor="middle">your agent</text>
-    </g>
+        <path class="st-edge" data-a="horae" data-b="iris" d="M310,428 L364,428"></path>
+        <polygon class="st-arrow" data-a="horae" data-b="iris" points="363,424 363,432 370,428"></polygon>
 
-    <g class="st-node" data-id="copia">
-        <rect x="350" y="56" width="200" height="56"></rect>
-        <text class="st-node-name" x="450" y="82" text-anchor="middle">CoPIA</text>
-        <text class="st-node-role" x="450" y="99" text-anchor="middle">the application</text>
+        <path class="st-edge" data-a="iris" data-b="arke" d="M500,428 L554,428"></path>
+        <polygon class="st-arrow" data-a="iris" data-b="arke" points="553,424 553,432 560,428"></polygon>
+
+        <path class="st-edge is-loose" data-a="arke" data-b="cloud" d="M690,428 L744,428"></path>
+        <polygon class="st-arrow" data-a="arke" data-b="cloud" points="743,424 743,432 750,428"></polygon>
     </g>
 
     <g class="st-node" data-id="gitlex">
-        <rect x="375" y="210" width="150" height="56"></rect>
-        <text class="st-node-name" x="450" y="236" text-anchor="middle">git-lex</text>
-        <text class="st-node-role" x="450" y="253" text-anchor="middle">semantic storage</text>
+        <rect x="390" y="30" width="200" height="56"></rect>
+        <text class="st-node-name" x="490" y="56" text-anchor="middle">git-lex</text>
+        <text class="st-node-role" x="490" y="73" text-anchor="middle">semantic storage / git repo</text>
     </g>
 
-    <g class="st-node" data-id="ravel">
-        <rect x="660" y="210" width="180" height="56"></rect>
-        <text class="st-node-name" x="750" y="236" text-anchor="middle">Ravel</text>
-        <text class="st-node-role" x="750" y="253" text-anchor="middle">transcripts</text>
+    <g class="st-node is-loose" data-id="human">
+        <rect x="60" y="140" width="160" height="56"></rect>
+        <text class="st-node-name" x="140" y="166" text-anchor="middle">Human</text>
+        <text class="st-node-role" x="140" y="183" text-anchor="middle">you</text>
     </g>
 
-    <g class="st-node" data-id="syrinx">
-        <rect x="40" y="370" width="155" height="56"></rect>
-        <text class="st-node-name" x="117" y="396" text-anchor="middle">Syrinx</text>
-        <text class="st-node-role" x="117" y="413" text-anchor="middle">distributed query</text>
+    <g class="st-node" data-id="copia">
+        <rect x="390" y="140" width="200" height="56"></rect>
+        <text class="st-node-name" x="490" y="166" text-anchor="middle">CoPIA</text>
+        <text class="st-node-role" x="490" y="183" text-anchor="middle">the application</text>
+    </g>
+
+    <g class="st-node is-loose" data-id="familiar">
+        <rect x="690" y="140" width="180" height="56"></rect>
+        <text class="st-node-name" x="780" y="166" text-anchor="middle">LLM Familiar</text>
+        <text class="st-node-role" x="780" y="183" text-anchor="middle">your agent</text>
     </g>
 
     <g class="st-node" data-id="pan">
-        <rect x="225" y="370" width="155" height="56"></rect>
-        <text class="st-node-name" x="302" y="396" text-anchor="middle">Pan</text>
-        <text class="st-node-role" x="302" y="413" text-anchor="middle">media store</text>
+        <rect x="150" y="270" width="160" height="56"></rect>
+        <text class="st-node-name" x="230" y="296" text-anchor="middle">Pan</text>
+        <text class="st-node-role" x="230" y="313" text-anchor="middle">media store</text>
+    </g>
+
+    <g class="st-node" data-id="syrinx">
+        <rect x="410" y="270" width="160" height="56"></rect>
+        <text class="st-node-name" x="490" y="296" text-anchor="middle">Syrinx</text>
+        <text class="st-node-role" x="490" y="313" text-anchor="middle">distributed query</text>
+    </g>
+
+    <g class="st-node" data-id="ravel">
+        <rect x="690" y="270" width="160" height="56"></rect>
+        <text class="st-node-name" x="770" y="296" text-anchor="middle">Ravel</text>
+        <text class="st-node-role" x="770" y="313" text-anchor="middle">transcripts</text>
     </g>
 
     <g class="st-node" data-id="horae">
-        <rect x="430" y="370" width="170" height="56"></rect>
-        <text class="st-node-name" x="515" y="396" text-anchor="middle">Horae</text>
-        <text class="st-node-role" x="515" y="413" text-anchor="middle">processing queue</text>
+        <rect x="150" y="400" width="160" height="56"></rect>
+        <text class="st-node-name" x="230" y="426" text-anchor="middle">Horae</text>
+        <text class="st-node-role" x="230" y="443" text-anchor="middle">processing queue</text>
     </g>
 
     <g class="st-node" data-id="iris">
-        <rect x="645" y="370" width="190" height="56"></rect>
-        <text class="st-node-name" x="740" y="396" text-anchor="middle">Iris / Arke</text>
-        <text class="st-node-role" x="740" y="413" text-anchor="middle">the model layer</text>
+        <rect x="370" y="400" width="130" height="56"></rect>
+        <text class="st-node-name" x="435" y="426" text-anchor="middle">Iris</text>
+        <text class="st-node-role" x="435" y="443" text-anchor="middle">render + perception</text>
+    </g>
+
+    <g class="st-node" data-id="arke">
+        <rect x="560" y="400" width="130" height="56"></rect>
+        <text class="st-node-name" x="625" y="426" text-anchor="middle">Arke</text>
+        <text class="st-node-role" x="625" y="443" text-anchor="middle">render perimeter</text>
+    </g>
+
+    <g class="st-node is-loose is-faint" data-id="cloud">
+        <rect x="750" y="400" width="150" height="56"></rect>
+        <text class="st-node-name" x="825" y="426" text-anchor="middle">cloud</text>
+        <text class="st-node-role" x="825" y="443" text-anchor="middle">rented machines</text>
     </g>
 </svg>
 <p class="st-diagram-note">Point at anything to see only what it touches.
-<span class="st-diagram-key">Dashed = who is in the room; solid = what the software does.</span></p>
+<span class="st-diagram-key">Dashed = not something you install; solid = the software.</span></p>
 </div>
 
 <div class="st-rule"><h2>Interface</h2></div>
@@ -174,7 +196,7 @@ permalink: /subtexture/
 <div class="st-rule"><h2>Infrastructure</h2></div>
 
 <div class="st-layer">
-    <p class="st-layer-lead">Five services. Each does one job, and each is designed to stand
+    <p class="st-layer-lead">Six services. Each does one job, and each is designed to stand
     alone.</p>
     <div class="st-cards">
 
@@ -192,14 +214,24 @@ permalink: /subtexture/
 
         <div class="st-card" data-node="iris">
             <div class="st-card-head">
-                <h4>Iris / Arke</h4>
+                <h4>Iris</h4>
                 <span class="st-status" data-state="running">running</span>
             </div>
-            <p class="st-role">the model layer</p>
-            <p>Everything that runs a model sits behind one address. Iris renders images and
-            reads them back — captions, regions, poses.</p>
-            <p>Arke stands in front of the render machines and switches between them, so
-            nothing upstream ever has to learn which machine is doing the work today.</p>
+            <p class="st-role">render + perception</p>
+            <p>Where a model actually runs. Iris renders images and reads them back —
+            captions, regions, poses — behind one address, so nothing upstream has to know
+            what a model is.</p>
+        </div>
+
+        <div class="st-card" data-node="arke">
+            <div class="st-card-head">
+                <h4>Arke</h4>
+                <span class="st-status" data-state="running">running</span>
+            </div>
+            <p class="st-role">render perimeter</p>
+            <p>The switch in front of the render machines. Arke picks which one is doing the
+            work and passes the request through unchanged, so a job does not care whether it
+            landed on the box under your desk or a machine you rented an hour ago.</p>
         </div>
 
         <div class="st-card" data-node="pan">

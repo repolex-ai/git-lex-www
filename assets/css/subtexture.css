@@ -144,10 +144,19 @@
     fill: var(--ink-soft);
 }
 
-.st-node.is-actor rect {
+.st-node.is-loose rect {
     stroke: var(--ink);
     stroke-dasharray: 4 3;
     fill: none;
+}
+
+.st-node.is-faint rect {
+    stroke: var(--ink-faint);
+}
+
+.st-node.is-faint .st-node-name,
+.st-node.is-faint .st-node-role {
+    fill: var(--ink-faint);
 }
 
 .st-edge {
@@ -211,7 +220,7 @@
     letter-spacing: 0.06em;
 }
 
-.st-edge.is-actor {
+.st-edge.is-loose {
     stroke-dasharray: 4 3;
 }
 
