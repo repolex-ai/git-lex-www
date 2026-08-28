@@ -6,134 +6,145 @@ nav_title: Document Types
 
 git-lex uses **kits** to define document types. Each kit provides a set of templates with typed frontmatter properties.
 
-## Solo Kit
+## The soul kit
 
-The solo kit ships with git-lex and is designed for personal knowledge management. Install it with:
+The **soul** kit is designed for a personal knowledge repository. Install it with:
 
 ```bash
-git lex init --kit solo
+git lex init --kit soul
 ```
+
+Kits are fetched from GitHub at `init` time; the base kit is always installed underneath.
+
+### How frontmatter is written
+
+Keys are flat and dotted — `kit.Class.property`, one per line. There is no nested block and
+no `type:` key; the class is part of every key name.
+
+```yaml
+---
+soul.Note.noteId: "thing-plane-first-flight"
+soul.Note.title: "Thing plane, first flight"
+soul.Note.topic: "the two-plane model"
+---
+```
+
+Every class folder holds a `__<Class>.md` template listing every key that class declares,
+its type, and whether it is required. That template is generated from the ontology, so it is
+always current — read it rather than this page if the two ever disagree.
+
+### Properties every class has
+
+| Property | Type | Description |
+|---|---|---|
+| id | IRI | This document's identity, in angle brackets — `<soul/Note/my-note>` |
+| title | string | Human-readable name |
+| description | string | One-line summary |
+| abstract | string | Longer summary |
+| cue | string | When this document is worth recalling; repeatable |
+| relatedToId | IRI | Reference to another document; repeatable |
+| dateCreated | datetime | |
+| dateUpdated | datetime | |
+| substrate | string | |
+| fileId | IRI | The file this document is written in |
 
 ### Note
 
-General-purpose notes with topic linking.
-
-```yaml
-solo:
-  type: Note
-  topic: "knowledge graphs"
-  relatedTo: "[[other-document]]"
-```
+Anything with no other home.
 
 | Property | Type | Description |
 |---|---|---|
-| topic | string | Primary topic |
-| relatedTo | reference | Link to related document |
+| noteId | string | Identifier slug |
+| topic | string | What this note is about |
 
-### Contact
+### Journal
 
-People and organizations.
-
-```yaml
-solo:
-  type: Contact
-  contactType: "person"
-  relationship: "collaborator"
-  squad: "engineering"
-  email: "name@example.com"
-```
+One entry per waking — the thread of your days.
 
 | Property | Type | Description |
 |---|---|---|
-| contactType | string | person, org, team |
-| relationship | string | Nature of relationship |
-| squad | string | Team or group |
-| email | string | Email address |
-| notes | string | Freeform notes |
-
-### Task
-
-Trackable work items.
-
-```yaml
-solo:
-  type: Task
-  taskStatus: "active"
-  priority: "high"
-  blockedBy: "[[other-task]]"
-  project: "git-lex"
-```
-
-| Property | Type | Description |
-|---|---|---|
-| taskStatus | string | active, done, blocked, backlog |
-| priority | string | high, medium, low |
-| blockedBy | string | Blocking dependency |
-| project | string | Project name |
-
-### Decision
-
-Architectural and strategic decisions.
-
-```yaml
-solo:
-  type: Decision
-  alternatives: "Option A, Option B"
-  rationale: "Option A has better performance"
-  outcome: "Chose Option A"
-```
-
-| Property | Type | Description |
-|---|---|---|
-| alternatives | string | Options considered |
-| rationale | string | Reasoning |
-| outcome | string | What was decided |
-| supersededBy | reference | Later decision that replaced this one |
-
-### Research
-
-Investigation and analysis.
-
-```yaml
-solo:
-  type: Research
-  researchStatus: "in-progress"
-  hypothesis: "RDF scales for code graphs"
-  findings: ""
-```
-
-| Property | Type | Description |
-|---|---|---|
-| researchStatus | string | in-progress, complete, abandoned |
-| hypothesis | string | What you're investigating |
-| findings | string | Results |
-| references | string | Sources |
+| journalId | string | Identifier slug |
+| earthDate | date | **Required.** The calendar date this entry covers |
+| soulDay | integer | **Required.** The soul-day number. Order by this, not by `earthDate` — two wakings can share a calendar day |
+| emojimood | string | The day's vibe as emoji |
 
 ### Memory
 
-Things to remember — facts, preferences, context.
-
-```yaml
-solo:
-  type: Memory
-  confidence: "high"
-  source: "direct observation"
-  category: "technical"
-```
+Facts, preferences and lessons worth keeping.
 
 | Property | Type | Description |
 |---|---|---|
-| confidence | string | high, medium, low |
+| memoryId | string | Identifier slug |
+| confidence | enum | `certain`, `likely`, `hypothesis`, `hunch` |
+| category | enum | `fact`, `lesson`, `observation`, `preference`, `decision`, `reference`, `skill` |
 | source | string | Where this came from |
-| category | string | Topic category |
 
-## Relationships
+### Exploration
 
-Use standard markdown links in document bodies to create relationships:
+A thread of focused inquiry, usually anchored to a Pursuit.
 
-- `[display text](/Soul/Note/some-doc.md)` creates a `linksTo` triple to that document
-- paths are root-relative — they resolve from the repository root, so they survive the linking file moving
+| Property | Type | Description |
+|---|---|---|
+| explorationId | string | Identifier slug |
+| explorationStatus | enum | `exploring`, `active`, `paused`, `concluded` |
+| hypothesis | string | What you're trying to figure out |
+| findings | string | What you've discovered so far |
 
-These are extracted automatically from document content, in the same pass that reads
-the frontmatter. git-lex does not read `[[wikilinks]]`; a bracketed name in a document
-body is plain prose.
+### Pursuit
+
+A standing thread you're advancing. Explorations point at these.
+
+| Property | Type | Description |
+|---|---|---|
+| pursuitId | string | Identifier slug |
+
+### Skill
+
+A procedure you can run by name.
+
+| Property | Type | Description |
+|---|---|---|
+| skillId | string | **Required.** Identifier slug |
+| skillDescription | string | **Required.** What it does and when to reach for it |
+| skillInvocability | enum | `user`, `agent`, `both` |
+| skillAllowedTools | string | Tools the skill may use |
+| skillArgumentHint | string | Argument shape, for help text |
+
+### Soul
+
+Your identity. One per repository, and it lives at the **repository root** as `SOUL.md`,
+not in a class folder.
+
+| Property | Type | Description |
+|---|---|---|
+| soulId | string | Derived from the genesis commit. The required floor |
+
+## References between documents
+
+`relatedToId` takes angle-bracket notation — `<namespace/Class/identifier>`:
+
+```yaml
+soul.Exploration.relatedToId:
+  - <soul/Pursuit/legible-knowledge-graphs>
+```
+
+The identifier is the document's own declared slug, not its filename. Where the two differ,
+the declared slug wins — a reference built from a filename can resolve to the wrong document
+rather than failing, which is much harder to notice.
+
+## Relationships from the body
+
+Standard markdown links in a document body become `linksTo` relationships:
+
+- `[display text](/Soul/Note/some-doc.md)` creates a `md:linksTo` triple to that document
+- paths are root-relative, so they survive the linking file moving
+
+These are extracted automatically, in the same pass that reads the frontmatter. git-lex does
+not read `[[wikilinks]]`; a bracketed name in a document body is plain prose.
+
+## Deprecated types
+
+Earlier versions of the soul kit shipped Contact, Task, Decision, Research and others. Those
+classes are deprecated — still declared so existing documents keep working, but they are not
+recommended for new work and are not listed above. If you are reading an ontology directly,
+filter `owl:deprecated` or you will build against retired terms.

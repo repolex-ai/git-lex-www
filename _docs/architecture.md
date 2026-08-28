@@ -46,11 +46,11 @@ git-lex uses RDF namespaces to organize triples:
 
 | Prefix | URI | Purpose |
 |---|---|---|
-| `git:` | `https://repolex.ai/ontology/git/` | Git metadata (commits, authors, timestamps) |
-| `fm:` | `https://repolex.ai/ontology/frontmatter/` | Frontmatter properties |
-| `lex:` | `https://repolex.ai/ontology/lex/` | git-lex relationships (mentions, linksTo) |
-| `lex-o:` | `https://repolex.ai/ontology/lex-o/` | git-lex ontology classes |
-| `solo:` | `https://repolex.ai/ontology/solo/` | Solo kit types and properties |
+| `git2:` | `https://repolex.ai/ontology/git-lex/git2/` | Git metadata (commits, authors, timestamps) |
+| `git-lex:` | `https://repolex.ai/ontology/git-lex/` | Core properties shared by every type (`id`, `title`, `relatedToId`) |
+| `fm:` | `https://repolex.ai/ontology/git-lex/fm/` | Frontmatter properties, on the file |
+| `md:` | `https://repolex.ai/ontology/git-lex/md/` | Markdown body facts (`linksTo`, `externalLink`) |
+| `soul:` | `https://repolex.ai/ontology/soul/` | Soul kit types and properties |
 
 ## Kits
 
@@ -61,4 +61,4 @@ Kits are pluggable type systems distributed as git-lex packages. A kit defines:
 - **Schema** (OWL/RDFS) for validation and reasoning
 - **Extraction rules** for custom property handling
 
-The solo kit is built-in. Custom kits can be installed from git repositories.
+The base kit is installed on every `init`. Domain kits are fetched from GitHub — `soul`, `squad`, `copia`, `lab` and others live under `repolex-ai/git-lex-kit-<name>` — and any `org/repo` publishing a kit can be installed the same way.
