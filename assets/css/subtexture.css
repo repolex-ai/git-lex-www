@@ -125,19 +125,6 @@
     height: auto;
 }
 
-.st-band {
-    fill: var(--wash);
-    stroke: none;
-}
-
-.st-band-label {
-    font-family: 'American Typewriter', 'Courier New', monospace;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    fill: var(--ink-faint);
-}
-
 .st-node rect {
     fill: #fff;
     stroke: var(--rule-strong);
@@ -157,15 +144,10 @@
     fill: var(--ink-soft);
 }
 
-.st-node.is-input rect {
-    stroke: var(--ink-faint);
-    stroke-dasharray: 3 3;
+.st-node.is-actor rect {
+    stroke: var(--ink);
+    stroke-dasharray: 4 3;
     fill: none;
-}
-
-.st-node.is-input .st-node-name {
-    fill: var(--ink-soft);
-    font-size: 13px;
 }
 
 .st-edge {
@@ -229,8 +211,8 @@
     letter-spacing: 0.06em;
 }
 
-.st-edge.is-input {
-    stroke-dasharray: 3 3;
+.st-edge.is-actor {
+    stroke-dasharray: 4 3;
 }
 
 /* --- Component cards --- */

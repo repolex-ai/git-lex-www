@@ -24,97 +24,122 @@ permalink: /subtexture/
 <div class="st-rule"><h2>The stack</h2></div>
 
 <div class="st-diagram" id="st-diagram">
-<svg viewBox="0 0 900 580" role="img" aria-label="The Subtexture stack in three layers: CoPIA as the interface, Horae, Syrinx, Ravel, Pan and Iris/Arke as infrastructure, and git-lex as the base.">
+<svg viewBox="0 0 900 470" role="img" aria-label="A human and an LLM familiar either side of CoPIA, both writing into git-lex below it; Ravel under the familiar; Syrinx, Pan, Horae and Iris/Arke as infrastructure underneath.">
 
-    <!-- layer bands -->
-    <rect class="st-band" x="0" y="20"  width="900" height="100"></rect>
-    <rect class="st-band" x="0" y="140" width="900" height="280"></rect>
-    <rect class="st-band" x="0" y="440" width="900" height="120"></rect>
-
-    <text class="st-band-label" x="14" y="40">Interface</text>
-    <text class="st-band-label" x="14" y="160">Infrastructure</text>
-    <text class="st-band-label" x="14" y="460">Base</text>
-
-    <!-- edges -->
+    <!-- edges: dashed = a participant, solid = software -->
     <g class="st-edges">
-        <path class="st-edge" data-a="copia"  data-b="horae"  d="M450,106 L450,170"></path>
-        <polygon class="st-arrow" data-a="copia" data-b="horae" points="446,169 454,169 450,176"></polygon>
+        <path class="st-edge is-actor" data-a="human" data-b="copia" d="M220,84 L344,84"></path>
+        <polygon class="st-arrow" data-a="human" data-b="copia" points="343,80 343,88 350,84"></polygon>
 
-        <path class="st-edge" data-a="copia"  data-b="syrinx" d="M370,106 C300,140 240,140 170,170"></path>
-        <polygon class="st-arrow" data-a="copia" data-b="syrinx" points="166,169 174,169 170,176"></polygon>
+        <path class="st-edge is-actor" data-a="familiar" data-b="copia" d="M655,84 L556,84"></path>
+        <polygon class="st-arrow" data-a="familiar" data-b="copia" points="557,80 557,88 550,84"></polygon>
 
-        <path class="st-edge" data-a="horae"  data-b="ravel"  d="M410,230 C360,270 320,280 265,314"></path>
-        <polygon class="st-arrow" data-a="horae" data-b="ravel" points="261,313 269,313 265,320"></polygon>
+        <path class="st-edge is-actor" data-a="human" data-b="gitlex" d="M138,112 C138,190 250,238 369,238"></path>
+        <polygon class="st-arrow" data-a="human" data-b="gitlex" points="368,234 368,242 375,238"></polygon>
 
-        <path class="st-edge" data-a="horae"  data-b="pan"    d="M470,230 C472,270 474,280 475,314"></path>
-        <polygon class="st-arrow" data-a="horae" data-b="pan" points="471,313 479,313 475,320"></polygon>
+        <path class="st-edge is-actor" data-a="familiar" data-b="gitlex" d="M750,112 C750,190 640,238 531,238"></path>
+        <polygon class="st-arrow" data-a="familiar" data-b="gitlex" points="532,234 532,242 525,238"></polygon>
 
-        <path class="st-edge" data-a="horae"  data-b="iris"   d="M510,230 C590,270 640,280 715,314"></path>
-        <polygon class="st-arrow" data-a="horae" data-b="iris" points="712,313 720,313 716,320"></polygon>
+        <path class="st-edge is-actor" data-a="familiar" data-b="ravel" d="M750,112 L750,204"></path>
+        <polygon class="st-arrow" data-a="familiar" data-b="ravel" points="746,203 754,203 750,210"></polygon>
 
-        <path class="st-edge" data-a="ravel"  data-b="gitlex" d="M280,374 C300,410 330,430 358,464"></path>
-        <polygon class="st-arrow" data-a="ravel" data-b="gitlex" points="356,463 364,463 360,470"></polygon>
+        <path class="st-edge" data-a="copia" data-b="gitlex" d="M450,112 L450,204"></path>
+        <polygon class="st-arrow" data-a="copia" data-b="gitlex" points="446,203 454,203 450,210"></polygon>
 
-        <path class="st-edge" data-a="pan"    data-b="gitlex" d="M475,374 C475,410 478,430 480,464"></path>
-        <polygon class="st-arrow" data-a="pan" data-b="gitlex" points="476,463 484,463 480,470"></polygon>
+        <path class="st-edge" data-a="copia" data-b="horae" d="M530,112 C580,170 560,300 505,364"></path>
+        <polygon class="st-arrow" data-a="copia" data-b="horae" points="501,362 509,362 505,370"></polygon>
 
-        <path class="st-edge" data-a="syrinx" data-b="gitlex" d="M170,230 L170,497 L294,497"></path>
-        <polygon class="st-arrow" data-a="syrinx" data-b="gitlex" points="293,493 293,501 300,497"></polygon>
+        <path class="st-edge" data-a="horae" data-b="ravel" d="M545,370 C600,340 660,300 731,273"></path>
+        <polygon class="st-arrow" data-a="horae" data-b="ravel" points="731,273 739,273 735,266"></polygon>
 
-        <path class="st-edge is-input" data-a="markdown" data-b="gitlex" d="M650,497 L606,497"></path>
-        <polygon class="st-arrow" data-a="markdown" data-b="gitlex" points="607,493 607,501 600,497"></polygon>
+        <path class="st-edge" data-a="horae" data-b="pan" d="M430,398 L386,398"></path>
+        <polygon class="st-arrow" data-a="horae" data-b="pan" points="387,394 387,402 380,398"></polygon>
+
+        <path class="st-edge" data-a="horae" data-b="iris" d="M600,398 L639,398"></path>
+        <polygon class="st-arrow" data-a="horae" data-b="iris" points="638,394 638,402 645,398"></polygon>
+
+        <path class="st-edge" data-a="syrinx" data-b="gitlex" d="M117,370 C117,320 250,300 396,272"></path>
+        <polygon class="st-arrow" data-a="syrinx" data-b="gitlex" points="396,273 404,273 400,266"></polygon>
     </g>
 
-    <!-- nodes -->
+    <!-- the two participants: not software, so not drawn as software -->
+    <g class="st-node is-actor" data-id="human">
+        <rect x="55" y="56" width="165" height="56"></rect>
+        <text class="st-node-name" x="137" y="82" text-anchor="middle">Human</text>
+        <text class="st-node-role" x="137" y="99" text-anchor="middle">you</text>
+    </g>
+
+    <g class="st-node is-actor" data-id="familiar">
+        <rect x="655" y="56" width="190" height="56"></rect>
+        <text class="st-node-name" x="750" y="82" text-anchor="middle">LLM Familiar</text>
+        <text class="st-node-role" x="750" y="99" text-anchor="middle">your agent</text>
+    </g>
+
     <g class="st-node" data-id="copia">
-        <rect x="350" y="52" width="200" height="54"></rect>
-        <text class="st-node-name" x="450" y="77" text-anchor="middle">CoPIA</text>
-        <text class="st-node-role" x="450" y="94" text-anchor="middle">the application</text>
-    </g>
-
-    <g class="st-node" data-id="syrinx">
-        <rect x="80" y="176" width="180" height="54"></rect>
-        <text class="st-node-name" x="170" y="201" text-anchor="middle">Syrinx</text>
-        <text class="st-node-role" x="170" y="218" text-anchor="middle">distributed query</text>
-    </g>
-
-    <g class="st-node" data-id="horae">
-        <rect x="350" y="176" width="200" height="54"></rect>
-        <text class="st-node-name" x="450" y="201" text-anchor="middle">Horae</text>
-        <text class="st-node-role" x="450" y="218" text-anchor="middle">processing queue</text>
-    </g>
-
-    <g class="st-node" data-id="ravel">
-        <rect x="180" y="320" width="170" height="54"></rect>
-        <text class="st-node-name" x="265" y="345" text-anchor="middle">Ravel</text>
-        <text class="st-node-role" x="265" y="362" text-anchor="middle">transcripts</text>
-    </g>
-
-    <g class="st-node" data-id="pan">
-        <rect x="390" y="320" width="170" height="54"></rect>
-        <text class="st-node-name" x="475" y="345" text-anchor="middle">Pan</text>
-        <text class="st-node-role" x="475" y="362" text-anchor="middle">media store</text>
-    </g>
-
-    <g class="st-node" data-id="iris">
-        <rect x="620" y="320" width="200" height="54"></rect>
-        <text class="st-node-name" x="720" y="345" text-anchor="middle">Iris / Arke</text>
-        <text class="st-node-role" x="720" y="362" text-anchor="middle">the model layer</text>
+        <rect x="350" y="56" width="200" height="56"></rect>
+        <text class="st-node-name" x="450" y="82" text-anchor="middle">CoPIA</text>
+        <text class="st-node-role" x="450" y="99" text-anchor="middle">the application</text>
     </g>
 
     <g class="st-node" data-id="gitlex">
-        <rect x="300" y="470" width="300" height="54"></rect>
-        <text class="st-node-name" x="450" y="495" text-anchor="middle">git-lex</text>
-        <text class="st-node-role" x="450" y="512" text-anchor="middle">semantic storage</text>
+        <rect x="375" y="210" width="150" height="56"></rect>
+        <text class="st-node-name" x="450" y="236" text-anchor="middle">git-lex</text>
+        <text class="st-node-role" x="450" y="253" text-anchor="middle">semantic storage</text>
     </g>
 
-    <g class="st-node is-input" data-id="markdown">
-        <rect x="650" y="470" width="210" height="54"></rect>
-        <text class="st-node-name" x="755" y="502" text-anchor="middle">your markdown</text>
+    <g class="st-node" data-id="ravel">
+        <rect x="660" y="210" width="180" height="56"></rect>
+        <text class="st-node-name" x="750" y="236" text-anchor="middle">Ravel</text>
+        <text class="st-node-role" x="750" y="253" text-anchor="middle">transcripts</text>
+    </g>
+
+    <g class="st-node" data-id="syrinx">
+        <rect x="40" y="370" width="155" height="56"></rect>
+        <text class="st-node-name" x="117" y="396" text-anchor="middle">Syrinx</text>
+        <text class="st-node-role" x="117" y="413" text-anchor="middle">distributed query</text>
+    </g>
+
+    <g class="st-node" data-id="pan">
+        <rect x="225" y="370" width="155" height="56"></rect>
+        <text class="st-node-name" x="302" y="396" text-anchor="middle">Pan</text>
+        <text class="st-node-role" x="302" y="413" text-anchor="middle">media store</text>
+    </g>
+
+    <g class="st-node" data-id="horae">
+        <rect x="430" y="370" width="170" height="56"></rect>
+        <text class="st-node-name" x="515" y="396" text-anchor="middle">Horae</text>
+        <text class="st-node-role" x="515" y="413" text-anchor="middle">processing queue</text>
+    </g>
+
+    <g class="st-node" data-id="iris">
+        <rect x="645" y="370" width="190" height="56"></rect>
+        <text class="st-node-name" x="740" y="396" text-anchor="middle">Iris / Arke</text>
+        <text class="st-node-role" x="740" y="413" text-anchor="middle">the model layer</text>
     </g>
 </svg>
-<p class="st-diagram-note">Point at a component to see only what it talks to.
-<span class="st-diagram-key">Dashed = what you write; solid = what builds on what.</span></p>
+<p class="st-diagram-note">Point at anything to see only what it touches.
+<span class="st-diagram-key">Dashed = who is in the room; solid = what the software does.</span></p>
+</div>
+
+<div class="st-rule"><h2>Interface</h2></div>
+
+<div class="st-layer">
+    <p class="st-layer-lead">What the rest of the stack exists to serve.</p>
+    <div class="st-cards">
+        <div class="st-card st-card-wide" data-node="copia">
+            <div class="st-card-head">
+                <h4>CoPIA</h4>
+                <span class="st-status" data-state="running">running</span>
+            </div>
+            <p class="st-role">conversation pair interactive analysis</p>
+            <p>CoPIA is the application on top — where the stored identity, media and
+            transcripts are actually worked with rather than merely kept.</p>
+            <p>Its one structural idea: the unit of a conversation is the <strong>pair</strong>
+            — what was said and what came back — because the relationship lives in the space
+            between them, not in either half. From that it builds the arc of a long
+            collaboration: where it held, where it diverged, and how it changed.</p>
+        </div>
+    </div>
 </div>
 
 <div class="st-rule"><h2>Base</h2></div>
@@ -222,27 +247,6 @@ permalink: /subtexture/
             </div>
         </div>
 
-    </div>
-</div>
-
-<div class="st-rule"><h2>Interface</h2></div>
-
-<div class="st-layer">
-    <p class="st-layer-lead">What the rest of the stack exists to serve.</p>
-    <div class="st-cards">
-        <div class="st-card st-card-wide" data-node="copia">
-            <div class="st-card-head">
-                <h4>CoPIA</h4>
-                <span class="st-status" data-state="running">running</span>
-            </div>
-            <p class="st-role">conversation pair interactive analysis</p>
-            <p>CoPIA is the application on top — where the stored identity, media and
-            transcripts are actually worked with rather than merely kept.</p>
-            <p>Its one structural idea: the unit of a conversation is the <strong>pair</strong>
-            — what was said and what came back — because the relationship lives in the space
-            between them, not in either half. From that it builds the arc of a long
-            collaboration: where it held, where it diverged, and how it changed.</p>
-        </div>
     </div>
 </div>
 
