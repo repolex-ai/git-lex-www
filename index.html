@@ -33,7 +33,7 @@ git lex query "SELECT ?s ?p ?o WHERE { ?s ?p ?o } LIMIT 10"</code></pre>
     </div>
     <div class="feature">
         <h3>Automatic extraction</h3>
-        <p><code>@mentions</code> and <code>[[wikilinks]]</code> are extracted from document bodies and commit messages into RDF triples. Relationships emerge naturally.</p>
+        <p>Ordinary markdown links in your documents become <code>linksTo</code> edges in the graph, read in the same pass as the frontmatter. Root-relative paths survive a file moving. Relationships emerge naturally.</p>
     </div>
     <div class="feature">
         <h3>SPARQL queryable</h3>

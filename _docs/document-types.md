@@ -129,9 +129,11 @@ solo:
 
 ## Relationships
 
-Use `@mentions` and `[[wikilinks]]` in document bodies to create relationships:
+Use standard markdown links in document bodies to create relationships:
 
-- `@agentname` creates a `lex:mentions` triple
-- `[[document-title]]` creates a `lex:linksTo` triple
+- `[display text](/Soul/Note/some-doc.md)` creates a `linksTo` triple to that document
+- paths are root-relative — they resolve from the repository root, so they survive the linking file moving
 
-These are extracted automatically from both document content and commit messages.
+These are extracted automatically from document content, in the same pass that reads
+the frontmatter. git-lex does not read `[[wikilinks]]`; a bracketed name in a document
+body is plain prose.

@@ -27,7 +27,7 @@ my-project/
 
 1. **Write** — Author markdown documents with YAML frontmatter
 2. **Save** — `git lex save` commits and triggers extraction
-3. **Extract** — Frontmatter properties become RDF triples; `@mentions` and `[[wikilinks]]` become relationship triples
+3. **Extract** — Frontmatter properties become RDF triples; markdown links in document bodies become `linksTo` relationship triples, in the same pass
 4. **Sync** — `git lex sync` builds the complete knowledge graph from git history + extractions
 5. **Query** — `git lex query` runs SPARQL against the graph
 
