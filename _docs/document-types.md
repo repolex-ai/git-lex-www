@@ -142,6 +142,11 @@ Standard markdown links in a document body become `linksTo` relationships:
 These are extracted automatically, in the same pass that reads the frontmatter. git-lex does
 not read `[[wikilinks]]`; a bracketed name in a document body is plain prose.
 
+Note the name: `md:linksTo` has no `Id` suffix, because it is not derived from a declared
+identifier — it is parsed out of the markdown body, which is what the `md/` segment marks.
+Every `...Id` predicate names the id its value derives from, and a body link has no such id
+to name.
+
 ## Deprecated types
 
 Earlier versions of the soul kit shipped Contact, Task, Decision, Research and others. Those
