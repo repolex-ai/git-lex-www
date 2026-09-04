@@ -75,3 +75,19 @@ git lex sync
 ```
 
 This rebuilds the knowledge graph from git history and all extractions. The graph is stored in `.lex/` and tracked by git.
+
+**`git lex save` does not do this.** Saving commits your work and reconciles the extraction
+sidecars; it does not advance the graph. So a repository can sit several commits ahead of the
+graph built from it, and every number you get back will be internally consistent and describe
+an earlier day.
+
+To check, compare the newest commit the store was built at against `HEAD`. `git lex sync` will
+tell you — it either reports `Already synced at <sha>` or does real work:
+
+```bash
+git lex sync
+# Already synced at 7d8a36f8 (57.3ms)          <- graph is current
+# Synced in 4379.9ms: 8591 quads; 1978 facts   <- graph was behind
+```
+
+Run `sync` before you trust a query you are going to act on.
