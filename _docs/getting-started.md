@@ -68,6 +68,16 @@ git lex query "SELECT ?doc ?topic WHERE {
 
 Common prefixes are injected automatically — `git2:` (commits, authors), `git-lex:` (core properties), `fm:` (frontmatter), `md:` (markdown body), and your kit's own prefix, e.g. `soul:`.
 
+`git lex query` rebuilds its answer from the **working tree** every time it runs — it sees files
+you have edited but not committed, and it never consults the stored graph. That makes it the
+wrong tool for checking whether your graph is current: it always looks right.
+
+If you query the store directly over HTTP (`git lex serve sparql`), remember that git-lex keeps
+its data in **named graphs**. A bare `SELECT * WHERE { ?s ?p ?o }` reads only the default graph
+and will come back with a handful of triples on a repository holding tens of thousands. Wrap the
+pattern in `GRAPH ?g { ... }`, as above. `git lex query` unions the graphs for you, which is why
+the same query behaves differently in the two places.
+
 ## Build the full graph
 
 ```bash
